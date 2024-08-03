@@ -6,15 +6,15 @@ import tempfile
 
 def initialize_firebase():
     # Use your Firebase project's credentials JSON file
-    cred = credentials.Certificate("path/to/your/firebase/credentials.json")
+    cred = credentials.Certificate("firebase_credentials.json")
     firebase_admin.initialize_app(cred, {
-        'storageBucket': 'your-bucket-name.appspot.com'
+        'storageBucket': 'smeasy-5111b.appspot.com'
     })
 
 def load_model():
     initialize_firebase()
     bucket = storage.bucket()
-    blob = bucket.blob('path/to/your/model.pkl')
+    blob = bucket.blob('alpha.pipe')
     _, temp_local_filename = tempfile.mkstemp()
     blob.download_to_filename(temp_local_filename)
     model = joblib.load(temp_local_filename)

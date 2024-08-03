@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Expose the port that the Flask app runs on
-EXPOSE 5000
+EXPOSE 6969
 
 # Define the entry point for the container
 ENTRYPOINT ["python"]
