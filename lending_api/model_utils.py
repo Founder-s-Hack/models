@@ -28,6 +28,18 @@ def run_model(model, data):
     org_employee_count = data['orgEmployeeCount']
     org_is_new = data['orgIsNew']
     org_anzsic = data['orgANZSIC']
+
+     # Extract optional input features with default values
+    org_is_urban = data.get('orgIsUrban', False)
+    loan_term_months = data.get('loanTermMonths', 12.0)
+    org_annual_revenue = data.get('orgAnnualRevenue', 0.0)
+    loan_interest_rate = data.get('loanInterestRate', 5.0)
+    
+    # Create an input array for the model
+    input_data = [[
+        loan_amount, org_employee_count, org_is_new, org_anzsic,
+        org_is_urban, loan_term_months, org_annual_revenue, loan_interest_rate
+    ]]
     
     # Create an input array for the model
     input_data = [[loan_amount, org_employee_count, org_is_new, org_anzsic]]
